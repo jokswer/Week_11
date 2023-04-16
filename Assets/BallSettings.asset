@@ -24,3 +24,15 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 412a78f390a0941fa9daec8e52e895d7, type: 2}
   - {fileID: 2100000, guid: c52d4a22c08fd41ca83bd6435670c155, type: 2}
   - {fileID: 2100000, guid: 66c5590ccfe7b4064adefebf73200627, type: 2}
+  BallTransparentMaterials:
+  - {fileID: 2100000, guid: d2ae6fa5ddee74ee8ab4dcf7a77ac806, type: 2}
+  - {fileID: 2100000, guid: db02d614aef194f71a3739ac90cd768a, type: 2}
+  - {fileID: 2100000, guid: 0ed8afaa2ec624150821d546925f4fa9, type: 2}
+  - {fileID: 2100000, guid: a2168e48e370a42a29b6a4bad84b13f2, type: 2}
+  - {fileID: 2100000, guid: 46ba7cf8940fe49a0a8dea5da687b378, type: 2}
+  - {fileID: 2100000, guid: 8d3f8e5cd58ba4a49879f21f9b4c0491, type: 2}
+  - {fileID: 2100000, guid: 85273ddb62e7c40c59081687402dd872, type: 2}
+  - {fileID: 2100000, guid: 3a0e9989d5bc545bb8a079352697f152, type: 2}
+  - {fileID: 2100000, guid: fda6f795fcc62474aa4c2c361e9d9795, type: 2}
+  - {fileID: 2100000, guid: 2846bb713126d4c6f906b3607aab01ac, type: 2}
+  - {fileID: 2100000, guid: 7199867a760c24d42a81b25730b301cb, type: 2}

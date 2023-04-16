@@ -8,7 +8,8 @@ public class ActiveItem : MonoBehaviour
     [SerializeField] private int _level;
     [SerializeField] private float _radius;
 
-    [SerializeField] private TMP_Text _levelText;
+    [SerializeField] protected TMP_Text _levelText;
+    [SerializeField] protected Projection _projection;
     [SerializeField] private Transform _visualTransform;
     [SerializeField] private SphereCollider _collider;
     [SerializeField] private SphereCollider _trigger;
@@ -19,9 +20,16 @@ public class ActiveItem : MonoBehaviour
     private float _maxRadius = 0.7f;
     private float _maxRadiusLevel = 10f;
     private bool _isDead = false;
-
+    
+    public float Radius => _radius;
     public int Level => _level;
     public bool IsDead => _isDead;
+    public Projection Projection => _projection;
+
+    private void Start()
+    {
+        _projection.Hide();
+    }
 
     [ContextMenu("IncreaseLevel")]
     public void IncreaseLevel()
