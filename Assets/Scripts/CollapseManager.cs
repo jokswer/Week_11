@@ -1,4 +1,6 @@
 using System.Collections;
+using ActiveItems;
+using PassiveItems;
 using UnityEngine;
 
 public class CollapseManager : MonoBehaviour
@@ -22,7 +24,7 @@ public class CollapseManager : MonoBehaviour
     private IEnumerator CollapseProcess(ActiveItem itemA, ActiveItem itemB)
     {
         itemA.Disable();
-        
+
         var startPosition = itemA.transform.position;
 
         for (float t = 0; t < 1f; t += Time.deltaTime / 0.08f)
@@ -34,5 +36,29 @@ public class CollapseManager : MonoBehaviour
         itemA.transform.position = itemB.transform.position;
         itemA.Die();
         itemB.IncreaseLevel();
+
+        ExplodeBall(itemB.transform.position, itemB.Radius + 0.15f);
+    }
+
+    private void ExplodeBall(Vector3 position, float radius)
+    {
+        var colliders = Physics.OverlapSphere(position, radius);
+
+        for (var i = 0; i < colliders.Length; i++)
+        {
+            var item = colliders[i].GetComponent<PassiveItem>();
+
+            var rb = colliders[i].attachedRigidbody;
+
+            if (rb)
+            {
+                item = rb.GetComponent<PassiveItem>();
+            }
+
+            if (item)
+            {
+                item.OnAffect();
+            }
+        }
     }
 }
