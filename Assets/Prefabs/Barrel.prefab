@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa3c2845b9a4b84ba39bb5a7584cff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
   _barrelExplosion: {fileID: 31263904472293174, guid: 710a9c2bf5e16094eb292421a964783e,
     type: 3}
 --- !u!1001 &6208050495418933269

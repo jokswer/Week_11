@@ -4,30 +4,26 @@ using UnityEngine;
 
 namespace ActiveItems
 {
-    public class ActiveItem : MonoBehaviour
+    public class ActiveItem : Item
     {
         [SerializeField] private int _level;
-        [SerializeField] private float _radius;
-
+        [SerializeField] protected float _radius;
         [SerializeField] protected TMP_Text _levelText;
         [SerializeField] protected Projection _projection;
-        [SerializeField] private Transform _visualTransform;
-        [SerializeField] private SphereCollider _collider;
-        [SerializeField] private SphereCollider _trigger;
+        [SerializeField] protected SphereCollider _collider;
+        [SerializeField] protected SphereCollider _trigger;
         [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private Animator _animator;
-
-        private float _minRadius = 0.4f;
-        private float _maxRadius = 0.7f;
-        private float _maxRadiusLevel = 10f;
+        [SerializeField] protected Animator _animator;
+        
         private bool _isDead = false;
     
         public float Radius => _radius;
         public int Level => _level;
         public bool IsDead => _isDead;
         public Projection Projection => _projection;
+        public Rigidbody Rigidbody => _rigidbody;
 
-        private void Start()
+        protected virtual void Start()
         {
             _projection.Hide();
         }
@@ -46,7 +42,6 @@ namespace ActiveItems
             _level = level;
             var number = (int)Mathf.Pow(2, _level + 1);
             SetLevelText(number);
-            SetRadius(number);
         }
 
         public void SetToTube()
@@ -99,19 +94,14 @@ namespace ActiveItems
             _levelText.text = value.ToString();
         }
 
-        private void SetRadius(int level)
-        {
-            _radius = Mathf.Lerp(_minRadius, _maxRadius, level / _maxRadiusLevel);
-            _visualTransform.localScale = Vector3.one * (_radius * 2f);
-            _collider.radius = _radius;
-            _trigger.radius = _radius + 0.1f;
-        }
-
         private IEnumerator ToggleTrigger()
         {
             _trigger.enabled = false;
             yield return new WaitForSeconds(0.08f);
             _trigger.enabled = true;
         }
+        
+        public virtual void DoEffect()
+        {}
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6628865047147984865}
   - component: {fileID: 6628865047147984864}
   - component: {fileID: 6628865047147984867}
+  - component: {fileID: 5167335259376468779}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc0bcc6d1334180b616ae4f11716f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 3
   _health: 2
   _levels:
   - {fileID: 4008207053325560142}
@@ -67,6 +69,22 @@ MonoBehaviour:
   _breackEffect: {fileID: 1976219335692886222, guid: 3db4991d6ea3f8d42a09199f62c1b5e9,
     type: 3}
   _animator: {fileID: 6628865047091998727}
+--- !u!54 &5167335259376468779
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628865047147984866}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &6628865047091998733
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace PassiveItems
 {
-    public class PassiveItem : MonoBehaviour
+    public class PassiveItem : Item
     {
         public virtual void OnAffect()
         {
