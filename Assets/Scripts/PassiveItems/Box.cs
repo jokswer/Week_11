@@ -36,6 +36,7 @@ namespace PassiveItems
         private void Die()
         {
             Destroy(gameObject);
+            ScoreManager.Instance.AddScore(Type, transform.position);
         }
 
         private void SetHealth(int health)

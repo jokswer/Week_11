@@ -18,6 +18,11 @@ namespace ActiveItems
             _renderer.material = _ballSettings.BallMaterials[level];
             SetRadius(level);
             _projection.Setup(_ballSettings.BallTransparentMaterials[level], _levelText.text, Radius);
+
+            if (ScoreManager.Instance.AddScore(Type, transform.position, level))
+            {
+                Die();
+            }
         }
         
         private void SetRadius(int level)

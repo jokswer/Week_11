@@ -17,6 +17,7 @@ namespace PassiveItems
         {
             Instantiate(_barrelExplosion, transform.position, Quaternion.Euler(-90f, 0, 0));
             Destroy(gameObject);
+            ScoreManager.Instance.AddScore(Type, transform.position);
         }
     }
 }

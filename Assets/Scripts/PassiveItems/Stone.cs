@@ -15,10 +15,14 @@ namespace PassiveItems
 
             if (_level > 0)
             {
-                for (int i = 0; i < 2; i++)
+                for (var i = 0; i < 2; i++)
                 {
                     CreateChildStone(_level - 1);
                 }
+            }
+            else
+            {
+                ScoreManager.Instance.AddScore(Type, transform.position);
             }
 
             Die();
