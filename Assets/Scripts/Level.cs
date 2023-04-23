@@ -11,7 +11,21 @@ public struct Task
 
 public class Level : MonoBehaviour
 {
-    public int NumberOfballs = 50;
-    public int MaxCreatedBallLevel = 1;
+    public static Level Instance => _instance;
     public Task[] Tasks;
+    public int NumberOfBalls => _numberOfBalls;
+    public int MaxCreatedLevel => _maxCreatedBallLevel;
+    
+
+    private static Level _instance;
+    [SerializeField] private int _maxCreatedBallLevel = 1;
+    [SerializeField] private int _numberOfBalls = 50;
+
+    private void Awake()
+    {
+        if (_instance)
+            Destroy(gameObject);
+        else
+            _instance = this;
+    }
 }

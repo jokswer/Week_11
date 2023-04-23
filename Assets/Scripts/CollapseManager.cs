@@ -2,11 +2,13 @@ using System.Collections;
 using ActiveItems;
 using PassiveItems;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollapseManager : MonoBehaviour
 {
     private static CollapseManager _instance;
     public static CollapseManager Instance => _instance;
+    public UnityEvent OnCollapse;
 
     private void Awake()
     {
@@ -94,6 +96,8 @@ public class CollapseManager : MonoBehaviour
                 toItem.DoEffect();
             }
         }
+        
+        OnCollapse.Invoke();
     }
 
     private void ExplodeBall(Vector3 position, float radius)
