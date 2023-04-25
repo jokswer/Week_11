@@ -1,4 +1,4 @@
-using System;
+using SaveSystem;
 using UnityEngine;
 
 public class Progress : MonoBehaviour
@@ -20,15 +20,39 @@ public class Progress : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        Load();
     }
 
     public void SetLevel(int level)
     {
         _level = level;
+        Save();
     }
 
     public void AddCoins(int value)
     {
         _coins += value;
+        Save();
+    }
+
+    private void Save()
+    {
+        SaveSystemService.Save(this);
+    }
+
+    private void Load()
+    {
+        var data = SaveSystemService.Load();
+
+        if (data != null)
+        {
+            _coins = data.Coins;
+            _level = data.Level;
+        }
+        else
+        {
+            _coins = 0;
+            _level = 1;
+        }
     }
 }
